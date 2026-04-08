@@ -2,7 +2,7 @@
 
 ## Objetivo del Proyecto
 
-Construir un motor de búsqueda que permita encontrar artículos específicos del reglamento (sobre becas, faltas disciplinarias, cancelaciones, etc.) utilizando **TF-IDF** para priorizar los fragmentos más relevantes.
+Construir un motor de búsqueda que permita encontrar artículos específicos del reglamento universitario (sobre becas, faltas disciplinarias, cancelaciones, etc.) utilizando **TF-IDF** para priorizar los fragmentos más relevantes.
 
 El algoritmo TF-IDF (Term Frequency-Inverse Document Frequency) calcula la importancia de una palabra en un documento respecto a una colección completa de documentos, permitiendo identificar qué artículos son más relevantes para una búsqueda dada.
 
@@ -66,42 +66,31 @@ python app.py
 
 ## Ejemplo de Uso
 
-El script busca el término **"futuro"** y muestra un ranking de documentos ordenados por relevancia:
+El script busca el término ingresado por consola y muestra un ranking de documentos ordenados por relevancia:
 
 ```
-IDF para el término 'futuro': 0.1823
-
- 1 - Documento: Artículo 6: El Consejo Académico puede establecer diferentes períodos académicos como semestre, trimestre o anualidad.: TF-IDF = 0.0182
- 2 - Documento: Artículo 22: Las asignaturas son homologables si cumplen al menos el 80% de equivalencia en contenido y tienen nota mínima aprobatoria.: TF-IDF = 0.0000
- ...
+Ingrese el término a buscar: Consejo
+IDF para el término 'Consejo': 1.2040
+ 1 - Documento: Artículo 3: El número de créditos de cada asignatura es definido por el Consejo Académico.: TF-IDF = 0.0803
+ 2 - Documento: Artículo 6: El Consejo Académico puede establecer diferentes períodos académicos como semestre, trimestre o anualidad.: TF-IDF = 0.0803
+ 3 - Documento: Artículo 10: La institución selecciona estudiantes sin discriminación, bajo criterios definidos por el Consejo Académico.: TF-IDF = 0.0803
+ 4 - Documento: Artículo 1: Los programas de pregrado deben garantizar formación científica, tecnológica, humanística y ética con enfoque en solución de problemas actuales.: TF-IDF = 0.0000
+ 5 - Documento: Artículo 2: Un crédito académico equivale a 48 horas de trabajo del estudiante, incluyendo actividades con docente e independientes.: TF-IDF = 0.0000
+ 6 - Documento: Artículo 4: Los créditos académicos se calculan dividiendo por 48 el total de horas requeridas para el aprendizaje.: TF-IDF = 0.0000
+ 7 - Documento: Artículo 5: La institución distingue entre créditos obligatorios y electivos según la naturaleza del programa.: TF-IDF = 0.0000
+ 8 - Documento: Artículo 7: Cada período académico tiene duración definida en semanas según normativa institucional.: TF-IDF = 0.0000
+ 9 - Documento: Artículo 11: Los aspirantes deben cumplir requisitos como formulario, diploma, examen de Estado, identificación y pago de inscripción.: TF-IDF = 0.0000
+ 10 - Documento: Artículo 22: Las asignaturas son homologables si cumplen al menos el 80% de equivalencia en contenido y tienen nota mínima aprobatoria.: TF-IDF = 0.0000
 ```
 
 ---
 
-## Proceso Implementado
-
-### Paso 1: Dataset Sugerido ✓
-Se seleccionaron 10 textos cortos del reglamento que simulan artículos completos sobre:
-- Programas de pregrado
-- Créditos académicos
-- Períodos académicos
-- Admisión de estudiantes
-- Homologación de asignaturas
-
-### Paso 2: Funciones Implementadas ✓
-Se crearon tres funciones principales:
-1. **Calcular TF**: frecuencia_palabra / total_palabras_doc
-2. **Calcular IDF**: log(Total_Docs / Docs_con_la_palabra)
-3. **Calcular Score Final**: Suma del TF-IDF de cada palabra de la consulta
-
-### Paso 3: Búsquedas y Resultados ✓
-Se ejecutan búsquedas y se documenta:
-- El **IDF** del término buscado
-- El **ranking de documentos** ordenados por TF-IDF
-- La **relevancia** de cada artículo para la consulta
+## Ejemplos de ejecución
+<img width="1851" height="409" alt="image" src="https://github.com/user-attachments/assets/6c3e1ccc-3be6-442b-97e5-a85c65c3171f" />
+<img width="1861" height="390" alt="image" src="https://github.com/user-attachments/assets/c2e7875a-80e2-402f-9b40-1ca49601c8f4" />
+<img width="1843" height="384" alt="image" src="https://github.com/user-attachments/assets/2533274c-423c-4f78-bc66-b525b87bfb32" />
 
 ---
-
 ## Interpretación de Resultados
 
 - **Score TF-IDF alto**: El documento es muy relevante para la búsqueda
@@ -114,7 +103,7 @@ Se ejecutan búsquedas y se documenta:
 ## Estructura del Código
 
 ```
-a.py
+app.py
 ├── Importar numpy
 ├── Dataset (10 artículos del reglamento)
 ├── Función: calcular_tf()
@@ -126,5 +115,6 @@ a.py
 
 ---
 
-## Autor
-Proyecto de búsqueda TF-IDF para reglamento académico
+## Autores
+- Daniel Felipe Chávez González
+- Rodrigo Muñoz Andrade
