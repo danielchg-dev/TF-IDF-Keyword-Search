@@ -35,7 +35,7 @@ def calcular_score_final(consulta, documento):
         score += tf * idf
     return score
 
-def rankear_idf(documentos):
+def ranquear_idf(documentos):
     palabras = []
     ranking = {} 
     for doc in documents:
@@ -68,6 +68,6 @@ for i, (doc_id, tf_idf, doc) in enumerate(scores, 1):
 
 input("\nDesea ver el ranking de IDF de todas las palabras? (s/n): ")
 if input().lower() == "s":
-    rankear_idf(documents)
+    ranquear_idf(documents)
 else:
     print("¡Gracias por usar el programa!")
