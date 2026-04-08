@@ -38,12 +38,12 @@ def calcular_score_final(consulta, documento):
 def ranquear_idf(documentos):
     palabras = []
     ranking = {} 
-    for doc in documents:
+    for doc in documentos:
         palabras.extend(doc.split())
     for i in palabras:
         i = i[:-1] if i[-1] in ",.:" else i
         if i not in ranking:
-            ranking.update({i : f"{calcular_idf(i, documents):.4f}"})
+            ranking.update({i : f"{calcular_idf(i, documentos):.4f}"})
             ranking = dict(sorted(ranking.items(), key=lambda item: item[1], reverse=True))
     for i in ranking:
         print(f"{i} - IDF: {ranking[i]}")
