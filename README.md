@@ -44,6 +44,19 @@ Score_Final = Σ (TF × IDF) para cada palabra de la consulta
 - **Entrada**: consulta (str), documento (str)
 - **Salida**: float (puntuación total)
 
+#### `ranquear_idf(documentos)`
+Genera un ranking de todas las palabras del dataset por su IDF, mostrando las palabras con mayor IDF primero.
+```
+Ranking = {palabra: IDF} ordenado de mayor a menor IDF
+```
+- **Entrada**: 
+  - documentos (list)
+- **Salida**: impresión en consola de cada palabra con su valor de IDF
+
+- **Notas**:  
+  - Se eliminan puntuaciones finales como `, . :` de las palabras antes del cálculo.  
+  - La función utiliza `calcular_idf` para obtener el valor de IDF de cada palabra.  
+  - El ranking se actualiza dinámicamente y se ordena de mayor a menor IDF.
 ---
 
 ## Cómo Ejecutar el Proyecto
@@ -81,14 +94,19 @@ IDF para el término 'Consejo': 1.2040
  8 - Documento: Artículo 7: Cada período académico tiene duración definida en semanas según normativa institucional.: TF-IDF = 0.0000
  9 - Documento: Artículo 11: Los aspirantes deben cumplir requisitos como formulario, diploma, examen de Estado, identificación y pago de inscripción.: TF-IDF = 0.0000
  10 - Documento: Artículo 22: Las asignaturas son homologables si cumplen al menos el 80% de equivalencia en contenido y tienen nota mínima aprobatoria.: TF-IDF = 0.0000
+
+
+Desea ver el ranking de IDF de todas las palabras? (s/n): 
+n
+¡Gracias por usar el programa!
 ```
 
 ---
 
 ## Ejemplos de ejecución
-<img width="1851" height="409" alt="image" src="https://github.com/user-attachments/assets/6c3e1ccc-3be6-442b-97e5-a85c65c3171f" />
-<img width="1861" height="390" alt="image" src="https://github.com/user-attachments/assets/c2e7875a-80e2-402f-9b40-1ca49601c8f4" />
-<img width="1843" height="384" alt="image" src="https://github.com/user-attachments/assets/2533274c-423c-4f78-bc66-b525b87bfb32" />
+<img width="1647" height="495" alt="image" src="https://github.com/user-attachments/assets/fede0847-c0c8-4483-809a-6dff05e6625a" />
+<img width="1647" height="480" alt="image" src="https://github.com/user-attachments/assets/371729b0-0e59-4f0e-85d8-98d5bd7b54b0" />
+<img width="1645" height="632" alt="image" src="https://github.com/user-attachments/assets/e83e7859-751b-4edc-af87-165d45921c62" />
 
 ---
 ## Interpretación de Resultados
@@ -109,6 +127,7 @@ app.py
 ├── Función: calcular_tf()
 ├── Función: calcular_idf()
 ├── Función: calcular_score_final()
+├── Función: ranquear_idf()
 ├── Búsqueda y ranking
 └── Visualización de resultados
 ```
