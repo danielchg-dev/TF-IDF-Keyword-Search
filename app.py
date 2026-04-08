@@ -35,6 +35,19 @@ def calcular_score_final(consulta, documento):
         score += tf * idf
     return score
 
+def rankear_idf(documentos):
+    palabras = []
+    ranking = {} 
+    for doc in documents:
+        palabras.extend(doc.split())
+    for i in palabras:
+        i = i[:-1] if i[-1] in ",.:" else i
+        if i not in ranking:
+            ranking.update({i : f"{calcular_idf(i, documents):.4f}"})
+            ranking = dict(sorted(ranking.items(), key=lambda item: item[1], reverse=True))
+    for i in ranking:
+        print(f"{i} - IDF: {ranking[i]}")
+
 # Solicitar palabra de búsqueda
 termino_buscado = input("Ingrese el término a buscar: ")
 idf = calcular_idf(termino_buscado, documents)
@@ -52,3 +65,9 @@ scores.sort(key=lambda x: x[1], reverse=True)
 # Mostrar resultados
 for i, (doc_id, tf_idf, doc) in enumerate(scores, 1):
     print(f" {i} - Documento: {doc}: TF-IDF = {tf_idf:.4f}")
+
+input("\nDesea ver el ranking de IDF de todas las palabras? (s/n): ")
+if input().lower() == "s":
+    rankear_idf(documents)
+else:
+    print("¡Gracias por usar el programa!")
